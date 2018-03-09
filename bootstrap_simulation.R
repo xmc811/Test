@@ -1,4 +1,5 @@
 # This is a experimental version on Github branching
+# This is another update on the Experiment branch
 
 a <- rnorm(10000, mean = 1, sd = 0.5)
 b <- rnorm(10000, mean = 3, sd = 1)
