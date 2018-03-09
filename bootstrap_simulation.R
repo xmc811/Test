@@ -1,4 +1,4 @@
-
+#This is something added to the master branch for testing.
 
 a <- rnorm(10000, mean = 1, sd = 0.5)
 b <- rnorm(10000, mean = 3, sd = 1)
