@@ -1,8 +1,8 @@
 H0<-0.5 #Set the point null hypothesis you want to calculate the Bayes Factor for
-n<-20 #set total trials
-x<-10 #set successes
-aprior<-100 #Set the alpha for the Beta distribution for the prior
-bprior<-100 #Set the beta for the Beta distribution for the prior
+n<-50 #set total trials
+x<-20 #set successes
+aprior<-2 #Set the alpha for the Beta distribution for the prior
+bprior<-2 #Set the beta for the Beta distribution for the prior
 
 alikelihood<-x+1 #Calculate the alpha for the Beta distribution for the likelihood
 blikelihood<-n-x+1 #Calculate the beta for the Beta distribution for the likelihood

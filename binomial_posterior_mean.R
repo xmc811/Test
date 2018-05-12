@@ -1,7 +1,7 @@
-n<-10000 #set total trials
-x<-10000 #set successes
-aprior<-1 #Set the alpha for the Beta distribution for the prior
-bprior<-1 #Set the beta for the Beta distribution for the prior
+n<-10 #set total trials
+x<-0 #set successes
+aprior<-10 #Set the alpha for the Beta distribution for the prior
+bprior<-10#Set the beta for the Beta distribution for the prior
 
 ymax<-10 #set max y-axis
 
