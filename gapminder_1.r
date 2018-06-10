@@ -1,3 +1,13 @@
+# load libraries
+
+library(tidyverse)
+library(gapminder)
+library(ggrepel)
+library(ggpubr)
+library(gridExtra)
+library(grid)
+
+# subset data
 
 data1 <- gapminder %>%
                 filter(year == 2007)
@@ -101,7 +111,7 @@ pic4 <- ggplot(data4, aes(y = lifeExp, x = gdpPercap)) +
 
 title1 <- textGrob("Countries with abnormal GDPPC/LE relationship", gp=gpar(fontsize = 15, font = 7))
 
-common_legend <- get_legend(pic1 + theme(legend.position="bottom"))
+common.legend <- get_legend(pic1 + theme(legend.position="bottom"))
         
-grid.arrange(pic2, pic3, pic4, pic1 + guides(col = F), ncol = 2, nrow = 2, top = title1, bottom = common_legend)
+grid.arrange(pic2, pic3, pic4, pic1 + guides(col = F), ncol = 2, nrow = 2, top = title1, bottom = common.legend)
 
