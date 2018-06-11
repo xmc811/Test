@@ -23,27 +23,32 @@ rm(raw_na)
 
 raw <- arrange(raw, time)
 
-## formatting
-raw <- mutate(raw, birth = paste0(substr(birth,1,6), "19", substr(birth,7,8)))
-
 ## date formatting
+raw <- mutate(raw, birth = paste0(substr(birth,1,6), "19", substr(birth,7,8)))
 
 raw <- mutate(raw, date = as.Date(date, format = "%d.%m.%Y"))
 raw <- mutate(raw, birth = as.Date(birth, format = "%d.%m.%Y"))
-raw <- mutate(raw, age = as.numeric((date - birth)/365.25))
-
-pic1 <- ggplot(raw %>% 
-                        filter(name == "Yohan Blake"),
-                aes(x = age, y = time)) +
-        geom_point() +
-        geom_smooth()
-
-plot(pic1)
+raw <- mutate(raw, age = as.numeric((date - birth)/365.25)) # dataset complete
 
 topMean <- function(vector, n) {
         mean(sort(vector)[1:n])
 }
 
-sort(tapply(raw$time, raw$country, topMean, n = 15))
+famous <- names(sort(tapply(raw$time, raw$name, topMean, n = 10))[1:5])
+
+data.famous <- raw %>% 
+                filter(name %in% famous)
+
+
+pic1 <- ggplot(data.famous, aes(x = date, y = time)) +
+        geom_point(aes(col = name), size = 0.5) +
+        geom_smooth(aes(col = name), method = "loess", se = F, span = 0.9) +
+        scale_colour_brewer(palette="Set1") +
+        scale_x_date(date_breaks = "2 years", date_labels = "%Y",
+                     limit = as.Date(c('2003-01-01',NA)))
+
+plot(pic1)
+
+
 sort(tapply(raw$time, raw$name, topMean, n = 10))
 
