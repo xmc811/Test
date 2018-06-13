@@ -1,5 +1,7 @@
 
 library(tidyverse)
+library(viridis)
+library(viridisLite)
 
 n <- 201
 
@@ -21,5 +23,6 @@ m <- tibble(x = tib_x, y = tib_y,
 
 pic <- ggplot(m, aes(x, y, z = density)) + 
         geom_raster(aes(fill = density)) + 
-        geom_contour(colour = "white", size = 0.1)
+        geom_contour(colour = "white", size = 0.1) +
+        scale_fill_viridis()
 plot(pic)
